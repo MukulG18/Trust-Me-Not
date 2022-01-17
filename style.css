@@ -19,9 +19,9 @@ input {
   margin-left: 10px;
   width: 100px;
 }
-.range {
-  /*   width:200px; */
-}
+/* .range {
+    width:200px;
+} */
 .c {
   display: flex;
   align-items: center;

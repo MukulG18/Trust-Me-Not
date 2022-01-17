@@ -260,7 +260,7 @@ function rs() {
       ch: -input,
       cc: (output - input) * r,
       g: (output - input) * r,
-      d: -input + (r > 1) ? output : 0,
+      d: -input + (r > 1 ? output : 0),
     },
     d: {
       co: output + (output - input) * (r - 1),
@@ -270,6 +270,5 @@ function rs() {
       d: 0,
     },
   };
-  console.log(output + (r > 1) ? -input : 0);
   paused = false;
 }
