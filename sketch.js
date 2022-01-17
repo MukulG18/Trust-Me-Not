@@ -266,9 +266,10 @@ function rs() {
       co: output + (output - input) * (r - 1),
       ch: 0,
       cc: Math.ceil(r / 2) * output - Math.floor(r / 2) * input,
-      g: output + (r > 1) ? -input : 0,
+      g: output + (r > 1 ? -input : 0),
       d: 0,
     },
   };
+  console.log(output + (r > 1) ? -input : 0);
   paused = false;
 }
