@@ -10,14 +10,14 @@ oCC = document.getElementById("ccVal");
 sCC.oninput = function () {
   oCC.innerText = this.value;
   cc = Number(this.value);
-  tVal = Number(cc + ch + co + g);
+  tVal.innerText = Number(cc + ch + co + g);
 }
 sCH = document.getElementById("chRange");
 oCH = document.getElementById("chVal");
 sCH.oninput = function () {
   oCH.innerText = this.value;
   ch = Number(this.value);
-  tVal = Number(cc + ch + co + g);
+  tVal.innerText = Number(cc + ch + co + g);
 
 }
 sCO = document.getElementById("coRange");
@@ -25,7 +25,7 @@ oCO = document.getElementById("coVal");
 sCO.oninput = function () {
   oCO.innerText = this.value;
   co = Number(this.value);
-  tVal = Number(cc + ch + co + g);
+  tVal.innerText = Number(cc + ch + co + g);
 
 }
 sG = document.getElementById("gRange");
@@ -34,7 +34,7 @@ sG.oninput = function () {
   oG.innerText = this.value;
   g = Number(this.value);
   console.log(g);
-  tVal = Number(cc + ch + co + g);
+  tVal.innerText = Number(cc + ch + co + g);
 }
 sR = document.getElementById("rRange");
 sR.oninput = function () {
