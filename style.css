@@ -1,25 +1,37 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
+body {
+  background-color: #d1d7dd !important;
+}
 canvas {
   display: block;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
 }
-.center{
+.center {
   align-items: center;
-  justitent: center;
-} 
-input{
-  margin-left:10px;
-  width:100px; 
+  justify-content: center;
 }
-.range{
-/*   width:200px; */
+input {
+  margin-left: 10px;
+  width: 100px;
 }
-.c{
-  display:flex;
+.range {
+  /*   width:200px; */
+}
+.c {
+  display: flex;
   align-items: center;
-  justitent: center;
+  justify-content: center;
+}
+button {
+  color: #3b5c74 !important;
+  background-color: #fff !important;
+}
+button:hover {
+  color: #fff !important;
+  background-color: #3b5c74 !important;
 }

@@ -32,52 +32,94 @@
     </nav>
     <!-- <hr /> -->
     <div style="padding: 20px;">
-        <div class="card" style="width: fit-content; position: fixed;">
+        <div class="card" style="width: 22%; position: fixed;">
             <div class="card-header">
                 <h5 class="mb-0 d-flex justify-content-between">
                     <button class="btn btn-outline-primary" data-toggle="collapse" data-target="#settings"
                         aria-expanded="false" aria-controls="settings">
                         <i class="fas fa-sliders-h"></i> </button>
-                    <button class="btn btn-outline-primary" style="margin-left: 20px;" onclick="rs()">Reset</button>
+                    <button class="btn btn-outline-primary" style="margin-left: 20px;" onclick="rs()">Start</button>
                 </h5>
             </div>
 
             <div class="collapse" id="settings" aria-labelledby="headingOne" data-parent="#open">
                 <div class="card-body">
-                    <h1 style="text-align: left;margin-bottom: 17px;font-size: 32px;"><i
+                    <h1 style="text-align: center;margin-bottom: 17px;font-size: 32px;"><i
                             class="icon ion-android-settings" style="width: 17px;height: 14px;"></i>&nbsp; Settings</h1>
                     <form class="user">
                         <div class="mb-3"></div>
                     </form>
                     <div class="text-center"></div>
                     <div class="slidecontainer">
-                        <hr><img src="assets/img/g.png" style="width: 32px;margin-top: -24px;">
-                        <input class="form-range slider" type="range" id="gRange" min="0" max="25" value="1"
-                            style="border-radius: 100px;width: 316px;">
-                        <p>Grudgers :&nbsp;<span id="gVal">1</span></p><img src="assets/img/co.png"
-                            style="width: 32px;margin-top: -24px;">
-                        <input class="form-range slider" type="range" id="coRange" min="0" max="25" value="1"
-                            style="border-radius: 100px;width: 316px;">
-                        <p>Cooperatives :&nbsp;<span id="coVal">1</span></p><img src="assets/img/ch.png"
-                            style="width: 32px;margin-top: -24px;">
-                        <input class="form-range slider" type="range" id="chRange" min="0" max="25" value="1"
-                            style="border-radius: 100px;width: 316px;">
-                        <p>Cheaters :&nbsp;<span id="chVal">1</span></p><img src="assets/img/cc.png"
-                            style="width: 32px;margin-top: -24px;">
-                        <input class="form-range slider" type="range" id="ccRange" min="0" max="25" value="1"
-                            style="border-radius: 100px;width: 316px;">
-                        <p>Copy-Cats :&nbsp;<span id="ccVal">1</span></p><img src="assets/img/d.png"
-                            style="width: 32px;margin-top: -24px;">
-                        <input class="form-range slider" type="range" id="dRange" min="0" max="25" value="1"
-                            style="border-radius: 100px;width: 316px;">
-                        <p>Doubting Copy-Cats :&nbsp;<span id="dVal">1</span></p>
-                        <hr/>
-                        <p>Total :&nbsp;<span id="totalVal">5</span></p>
+                        <hr />
+                        <div class="Grudgers container p-0">
+                            <div class="row" style="align-items: center;">
+
+                                <img src="assets/img/g.png" style="min-width: 20px; width: 10%; padding:0px" />
+                                <input class="form-range slider" type="range" id="gRange" min="0" max="25" value="1" style="border-radius: 100px;width: 90%;"/>
+                            </div>
+                            <div class="row">
+
+                                <p>Grudgers :&nbsp;<span id="gVal">1</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="Cooperatives container p-0">
+                            <div class="row" style="align-items: center;">
+                        
+                                <img src="assets/img/co.png" style="min-width: 20px; width: 10%; padding:0px">
+                                <input class="form-range slider" type="range" id="coRange" min="0" max="25" value="1"
+                                    style="border-radius: 100px;width: 90%;" />
+                            </div>
+                            <div class="row">
+                                <p>Cooperatives :&nbsp;<span id="coVal">1</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="Cheaters container p-0">
+                            <div class="row" style="align-items: center;">
+                        
+                                <img src="assets/img/ch.png" style="min-width: 20px; width: 10%; padding:0px">
+                                <input class="form-range slider" type="range" id="chRange" min="0" max="25" value="1"
+                                    style="border-radius: 100px;width: 90%;" />
+                            </div>
+                            <div class="row">
+                                <p>Cheaters :&nbsp;<span id="chVal">1</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="Copy-Cats container p-0">
+                            <div class="row" style="align-items: center;">
+                        
+                                <img src="assets/img/cc.png" style="min-width: 20px; width: 10%; padding:0px" >
+                                <input class="form-range slider" type="range" id="ccRange" min="0" max="25" value="1"
+                                style="border-radius: 100px;width: 90%;" />
+                            </div>
+                            <div class="row">
+                                <p>Copy-Cats :&nbsp;<span id="ccVal">1</span></p>
+                            </div>
+                        </div>
+
+                        <div class="Doubting-Copy-Cats container p-0">
+                            <div class="row" style="align-items: center;">
+                        
+                                <img src="assets/img/d.png" style="min-width: 20px; width: 10%; padding:0px">
+                                <input class="form-range slider" type="range" id="dRange" min="0" max="25" value="1"
+                                    style="border-radius: 100px;width: 90%;" />
+                            </div>
+                            <div class="row">
+                                <p>Doubting Copy-Cats :&nbsp;<span id="dVal">1</span></p>
+                            </div>
+                        </div>
+
+                        <hr />
+                        <p style="text-align: center; font-size: larger;">Total :&nbsp;<span id="totalVal">5</span></p>
                     </div>
                 </div>
-                <label class="form-label" for="rRange" style="margin-left:20px;"> Rounds</label>
-                <input type="number" name="rounds" id="rRange" placeholder="Rounds" value="1" min="1" max="50"
-                    style="margin-left:20px;margin-bottom:20px">
+                <div class="d-flex justify-content-center">
+                    <label class="form-label" for="rRange" style="margin-left:20px;"> Rounds</label>
+                    <input type="number" name="rounds" id="rRange" placeholder="Rounds" value="1" min="1" max="50" style="margin-left:20px;margin-bottom:20px">
+                </div>
             </div>
         </div>
     </div>
@@ -106,18 +148,21 @@
                             class="icon ion-social-instagram"></i></a></div>
             </div>
             <p class="copyright">IGTS
-    <script src="sketch.js"></script>
+                <script src="sketch.js"></script>
 
 
-    <script src="jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous">
-    </script>
-    <script src="bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous">
-    </script>
+                <script src="jquery-3.2.1.slim.min.js"
+                    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                    crossorigin="anonymous">
+                    </script>
+                <script src="popper.min.js"
+                    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                    crossorigin="anonymous">
+                    </script>
+                <script src="bootstrap.min.js"
+                    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                    crossorigin="anonymous">
+                    </script>
 
 
 
