@@ -2,31 +2,32 @@ cc = 1;
 ch = 1;
 co = 1;
 g = 1;
+d = 1;
+input = 1;
+output = 3;
 r=1;
-circles = cc + ch + co + g;
+circles = cc + ch + co + g + d;
 tVal = document.getElementById("totalVal");
 sCC = document.getElementById("ccRange");
 oCC = document.getElementById("ccVal");
 sCC.oninput = function () {
   oCC.innerText = this.value;
   cc = Number(this.value);
-  tVal.innerText = Number(cc + ch + co + g);
+  tVal.innerText = Number(cc + ch + co + g + d);
 }
 sCH = document.getElementById("chRange");
 oCH = document.getElementById("chVal");
 sCH.oninput = function () {
   oCH.innerText = this.value;
   ch = Number(this.value);
-  tVal.innerText = Number(cc + ch + co + g);
-
+  tVal.innerText = Number(cc + ch + co + g + d);
 }
 sCO = document.getElementById("coRange");
 oCO = document.getElementById("coVal");
 sCO.oninput = function () {
   oCO.innerText = this.value;
   co = Number(this.value);
-  tVal.innerText = Number(cc + ch + co + g);
-
+  tVal.innerText = Number(cc + ch + co + g + d);
 }
 sG = document.getElementById("gRange");
 oG = document.getElementById("gVal");
@@ -34,7 +35,14 @@ sG.oninput = function () {
   oG.innerText = this.value;
   g = Number(this.value);
   console.log(g);
-  tVal.innerText = Number(cc + ch + co + g);
+  tVal.innerText = Number(cc + ch + co + g + d);
+}
+sD = document.getElementById("dRange");
+oD = document.getElementById("dVal");
+sD.oninput = function () {
+  oD.innerText = this.value;
+  d = Number(this.value);
+  tVal.innerText = Number(cc + ch + co + g + d);
 }
 sR = document.getElementById("rRange");
 sR.oninput = function () {
@@ -51,29 +59,40 @@ function getCenter(middle, i, displace = 0) {
 let allPlayers = new Array();
 let scoreTable = {
   co: {
-    co: 2 * r,
-    ch: -1 * r,
-    cc: 2 * r,
-    g: 2 * r
+    co: (output-input) * r,
+    ch: (-input) * r,
+    cc: (output-input) * r,
+    g: (output-input) * r,
+    d: (-input) + (output-input) * (r-1)
   },
   ch: {
-    co: 3 * r,
+    co: output * r,
     ch: 0,
-    cc: 3,
-    g: 3
+    cc: output,
+    g: output,
+    d: 0
   },
   cc: {
-    co: 2 * r,
-    ch: -1,
-    cc: 2 * r,
-    g: 2 * r
+    co: (output-input) * r,
+    ch: -input,
+    cc: (output-input) * r,
+    g: (output-input) * r,
+    d: Math.floor(r/2) * output - Math.ceil(r/2) * input
   },
   g: {
-    co: 2 * r,
-    ch: -1,
-    cc: 2 * r,
-    g: 2 * r
+    co: (output-input) * r,
+    ch: -input,
+    cc: (output-input) * r,
+    g: (output-input) * r,
+    d: -input + (r > 1) ? output : 0
   },
+  d: {
+    co: output + (output-input) * (r-1),
+    ch: 0,
+    cc: Math.ceil(r/2) * output - Math.floor(r/2) * input,
+    g: output + (r > 1) ? -input : 0,
+    d: 0
+  }
 };
 
 const cDiv = document.getElementById('canvas');
@@ -81,7 +100,7 @@ function setup() {
   // console.log(cDiv.offsetWidth,cDiv.offsetHeight);
   cnv = createCanvas(700,700);
   cnv.parent("canvas");
-  circles = cc + ch + co + g;
+  circles = cc + ch + co + g + d;
   for (i = 0; i < co; i++) {
     allPlayers.push(["co", 0]);
   }
@@ -94,16 +113,20 @@ function setup() {
   for (i = 0; i < g; i++) {
     allPlayers.push(["g", 0]);
   }
+  for (i = 0; i < d; i++) {
+    allPlayers.push(["d", 0]);
+  }
   img = {
-    cc: loadImage("assets/cc.png"),
-    ch: loadImage("assets/ch.png"),
-    co: loadImage("assets/co.png"),
-    g: loadImage("assets/g.png"),
+    cc: loadImage("assets/img/cc.png"),
+    ch: loadImage("assets/img/ch.png"),
+    co: loadImage("assets/img/co.png"),
+    g: loadImage("assets/img/g.png"),
+    d: loadImage("assets/img/d.png")
   };
   started = 0;
   end = 1;
   flag = 1;
-  frameRate(circles**2);
+  frameRate(circles**3);
   
 }
 paused = false;
@@ -179,7 +202,7 @@ function rs()
   flag=1;
   allPlayers = [];
   console.log(cc);
-  circles = cc + ch + co + g;
+  circles = cc + ch + co + g + d;
   for (i = 0; i < co; i++) {
     allPlayers.push(["co", 0]);
   }
@@ -192,31 +215,8 @@ function rs()
   for (i = 0; i < g; i++) {
     allPlayers.push(["g", 0]);
   }
-  scoreTable = {
-    co: {
-      co: 2 * r,
-      ch: -1 * r,
-      cc: 2 * r,
-      g: 2 * r
-    },
-    ch: {
-      co: 3 * r,
-      ch: 0,
-      cc: 3,
-      g: 3
-    },
-    cc: {
-      co: 2 * r,
-      ch: -1,
-      cc: 2 * r,
-      g: 2 * r
-    },
-    g: {
-      co: 2 * r,
-      ch: -1,
-      cc: 2 * r,
-      g: 2 * r
-    },
-  };
+  for (i = 0; i < d; i++) {
+    allPlayers.push(["d", 0]);
+  }
   paused=false;
 }
