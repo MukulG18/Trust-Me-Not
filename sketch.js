@@ -131,7 +131,7 @@ function setup() {
 paused = false;
 function draw() {
   //("h");
-  if (paused) return;
+  if (paused || circles < 2 || r < 1) return;
   background("#d1d7dd");
   fill(255);
   stroke(0);
